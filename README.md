@@ -59,7 +59,7 @@ if((Show-Confirm -Title "Click OK to acknowledge SPE is great!") -eq "Yes"){
 }
 ```
 This example was used to show context items, and content editor button using the Module framework:
-```
+```PowerShell
 if((Show-Confirm -Title "Shall I tell you the item's name?") -eq "Yes"){
     $context = get-item .
     Show-Alert -Title "Item is named... $($context.Name)" 
