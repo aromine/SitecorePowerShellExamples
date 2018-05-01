@@ -65,3 +65,19 @@ if((Show-Confirm -Title "Shall I tell you the item's name?") -eq "Yes"){
     Show-Alert -Title "Item is named... $($context.Name)" 
 }
 ```
+## Show a Report of Items currently in Workflow and show the state and step
+```PowerShell
+get-childitem -Path 'master:/sitecore/content/Home' -recurse | 
+Where-object {$_."__Workflow" -ne $null} | 
+Show-ListView -Property Name, 
+    @{
+        Label="Workflow"; 
+        Expression={(Get-Item master: -ID $_."__Workflow").Name}
+    }, 
+    @{
+        Label="Workflow State"; 
+        Expression={(Get-Item master: -ID $_."__Workflow state").Name}
+    }
+```
+Produces:
+![Report](/images/report.png)
