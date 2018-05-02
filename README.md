@@ -3,8 +3,11 @@
 This includes some really simple Sitecore PowerShell samples that were used on the presentation to the Richmond Sitecore User's Group.  No warranty is expressed, implied, or thought about.  Enjoy!
 
 ## Onion
-A super simple example w/ json data dumped from theonion.com on 5/1/18 that represents some content that we can import.  JSON was created with this script:
+A super simple example w/ json data dumped from theonion.com on 5/1/18 that represents some content that we can import.  
+
+JSON data was created with this script (using jQuery that was present on theonion.com to generate it - although querySelector could have accomplished this without jQuery):
 ```javascript 
+//JavaScript executed on the developer console on theonion.com
 var articles = []; 
 $("article").each(function(){ 
   articles.push({
